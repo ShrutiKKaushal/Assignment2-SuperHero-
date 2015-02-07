@@ -16,7 +16,7 @@ namespace Assignment02
         {
 
 
-            SuperHero newSuperHero = new SuperHero("Super Man");
+            SuperHero newSuperHero = new SuperHero("Iron Man");
             newSuperHero.showPowers();
             Hero h1 = new Hero("King");
             h1.fight();

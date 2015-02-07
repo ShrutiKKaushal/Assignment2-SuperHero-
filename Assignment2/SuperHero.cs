@@ -20,19 +20,19 @@ namespace Assignment02
 
         // ************** Array with listing of Powers ******************
         private string[] powerList ={"Super Speed","Super Strength","Body Armour",
-        "Flight","Fire Generation","Weather Control"};
+        "Flight","Fire Generation","Weather Control", "Super Senses", "Super Intelligence"};
         //create random numbers
         Random rnd = new Random();
         private int randomElement;
 
 
         
-        //private Method++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        //******************** PRIVATE METHOD **************************
         private void generateRandomPowers()
         {
             // **********temporary Array for storing values ***************
             string[] temPowers = new string[powerList.Length];
-            // Copy each element of the listOf6Powers to temPowers
+            // Copy each element of the PowerList to temPowers
             for (int i = 0; i < powerList.Length; i++)
             {
                 temPowers[i] = powerList[i];
@@ -41,7 +41,7 @@ namespace Assignment02
             int index = 0;
             while (index < superPowers.Length)
             {
-                //generate random number
+           
                 this.randomElement = generateRandomElement(rnd, powerList.Length);
                 //assign the results to superPowers array
                 if (temPowers[randomElement] != "Unavailable")
@@ -51,21 +51,30 @@ namespace Assignment02
                     index++;
                 }
             }
-            /*
-            //pick up three random powers
+        }
+
+        //********************* PUBLIC METHOD ************************
+        public void showPowers()
+        {
+            //display a list of powers
+            Console.WriteLine("\t************** LIST OF POWERS ****************");
+            for (int i = 0; i < this.powerList.Length; i++)
+            {
+                Console.WriteLine("\t {0}'s power : {1} ", this.name, this.powerList[i]);
+            }
+            Console.WriteLine("\t**********************************************");
+            Console.WriteLine();
+            //display superPowers
+            Console.WriteLine("\t********** 3 random great Powers ***************");
             for (int i = 0; i < superPowers.Length; i++)
             {
-            //generate random number
-            this.randomElement = generateRandomElement(rnd, listOf6Powers.Length);
-            //assign the results to superPowers array
-            if (temPowers[randomElement]!="Unavailable")
-            {
-            this.superPowers[i] = temPowers[this.randomElement];
-            temPowers[this.randomElement] = "Unavailable";
+                Console.WriteLine(" \t{0}'s super Natural Power #{1} : {2} ", this.name,i+1 ,this.superPowers[i]);
             }
-            }*/
+            Console.WriteLine("\t************************************************");
         }
-     
+
+
+        // *************** Extracted Method **************
         public static int generateRandomElement(Random rnd, int max)
         {
             int randomNumber = rnd.Next(max);
